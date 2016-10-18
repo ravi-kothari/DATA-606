@@ -1,0 +1,100 @@
+---
+title: "Project_proposal"
+author: "Ravi Kothari"
+date: "October 17, 2016"
+output: html_document
+---
+
+```{r include=FALSE, cache=FALSE}
+# DO NOT REMOVE
+# THIS IS FOR SETTING SOME PLOTTING PARAMETERS SO THAT YOUR PLOTS DON'T TAKE UP TOO MUCH SPACE
+# IF YOU WOULD LIKE TO CHANGE THESE, SEE HELP FILES ON THE par() FUNCTION
+# OR ASK FOR HELP
+library(knitr)
+## set global chunk options
+opts_chunk$set(fig.path='figure/manual-', cache.path='cache/manual-', fig.align='center', fig.show='hold', par=TRUE)
+## tune details of base graphics (http://yihui.name/knitr/hooks)
+knit_hooks$set(par=function(before, options, envir){
+if (before && options$fig.show!='none') par(mar=c(4,4,.2,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.3)
+})
+```
+
+```{r read_data, eval=FALSE}
+
+getwd()
+gas <- read.csv("gas_prices.csv",stringsAsFactors=FALSE)
+oil <- read.csv("crude_oil.csv",stringsAsFactors=FALSE)
+dim(gas)
+dim(oil)
+head(oil)
+head(gas)
+```
+
+
+### Research question 
+
+This project investigates relationship between gas prices and crude oil and if there is any strong correlation between them.
+
+The following questions are investigated:
+
+* Trend of gas prices from 1984 to 2015?
+
+* Correlation between crude oil and gas prices?
+
+* Also we will investigate the rate of change of gas prices during certain times of the year. ?
+
+
+### Cases 
+
+```{r cases, eval=TRUE}
+
+dim(gas)
+dim(oil)
+
+```
+
+
+
+### Data collection 
+
+
+FRED (Federal Reserve Economic Data of St. Louis Fed) has historical data for WTI Crude Oil and average Gasoline prices. The gasoline prices, averaged from roughly 900 retail outlets, are reported weekly at 8:00AM every Monday. The price represents self-service unless only full-service is available and includes all taxes. See (http://www.eia.doe.gov/oil_gas/petroleum/data_publications/wrgp/mogas_home_page.html) for further definitions. All Formulations includes both conventional gasoline and reformulated gasoline.  
+
+### Type of study 
+
+This is an observational study as we are only taking average of the gas prices, and ignoring many other variables which can impact the gas prices like inflation, economy and other factors.
+
+
+
+### Data Source 
+
+US. Energy Information Administration, Crude Oil Prices: West Texas Intermediate (WTI) - Cushing, Oklahoma [DCOILWTICO], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/DCOILWTICO, October 17, 2016.
+
+US. Energy Information Administration, US Regular Conventional Gas Price [GASREGCOVM], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/GASREGCOVM, October 17, 2016.
+
+
+
+
+### Response 
+
+Gas prices is the response variable as we are trying to see the impact of crude oil prices on gas prices. Its type is numerical
+
+
+
+### Explanatory 
+
+Crude oil is the explanatory variable. Its type is numerical as well.
+
+
+
+### Relevant summary statistics 
+
+We will be calculating correlation between the two prices and also see if percentage changes for gas prices. The relevant code will be updated later.
+
+
+```{r}
+
+summary(oil)
+summary(gas)
+
+```
